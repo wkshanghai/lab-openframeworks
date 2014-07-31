@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BB967E62-D170-430C-992F-3071A5FB15F8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>theLab</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E0D4445E-4C43-4CCE-AD3D-7E9777D09B90</key>
+		<string>https://github.com/wkshanghai/lab-openframeworks.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>apps/myApps/theLab/theLab.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E0D4445E-4C43-4CCE-AD3D-7E9777D09B90</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wkshanghai/lab-openframeworks.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E0D4445E-4C43-4CCE-AD3D-7E9777D09B90</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E0D4445E-4C43-4CCE-AD3D-7E9777D09B90</string>
+			<key>IDESourceControlWCCName</key>
+			<string>lab-openframeworks</string>
+		</dict>
+	</array>
+</dict>
+</plist>
