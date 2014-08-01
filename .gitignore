@@ -1,2 +1,4 @@
 apps/myApps/theLab/bin/*
 libs/openFrameworksCompiled/*
+apps/myApps/theLab/theLab.xcodeproj/project.xcworkspace/*
+apps/myApps/theLab/theLab.xcodeproj/project.xcworkspace/xcuserdata/victor.norgren.xcuserdatad/UserInterfaceState.xcuserstate
