@@ -1,4 +1,5 @@
 #include "ofApp.h"
+#include "AbstractObject.h"
 
 const int width = 800;
 const int height = 600;
@@ -27,6 +28,9 @@ void ofApp::setup(){
     
 	ofSetFrameRate(60); // if vertical sync is off, we can go a bit fast... this caps the framerate at 60fps.
 
+    cout << "Before" << endl;
+    AbstractObject* obj = new AbstractObject(10, 128, 256);
+    cout << "After" << endl;
 }
 
 //--------------------------------------------------------------
