@@ -9,16 +9,23 @@
 #ifndef __theLab__AbstractObject__
 #define __theLab__AbstractObject__
 
+#include "ofMain.h"
 #include <iostream>
 
 class AbstractObject {
-    int objectId;
-    int width;
-    int height;
-    
 public:
     AbstractObject(int _objectId, int _width, int _height);
 	~AbstractObject();
+    
+    int objectId;
+    int x;
+    int y;
+    int width;
+    int height;
+    
+    void draw();
+    
+    bool operator == (const AbstractObject &rhs);
 protected:
 private:
     

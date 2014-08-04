@@ -1,6 +1,8 @@
 #include "ofApp.h"
 #include "AbstractObject.h"
 
+#include "ObjPixelRect.h"
+
 const int width = 800;
 const int height = 600;
 
@@ -12,7 +14,6 @@ void ofApp::setup(){
 	
     //ofBackground(0,0,0);
     
-	
     bSmooth = false;
 	ofSetWindowTitle("ofxSyphon Example");
     
@@ -27,10 +28,12 @@ void ofApp::setup(){
     tex.allocate(200, 100, GL_RGBA);
     
 	ofSetFrameRate(60); // if vertical sync is off, we can go a bit fast... this caps the framerate at 60fps.
-
-    cout << "Before" << endl;
-    AbstractObject* obj = new AbstractObject(10, 128, 256);
-    cout << "After" << endl;
+    
+    //AbstractObject obj(10, 128, 256);
+    //container.add(obj);
+    
+    ObjPixelRect objPixelRect(1, 256, 256);
+    container.add(objPixelRect);
 }
 
 //--------------------------------------------------------------
@@ -66,15 +69,6 @@ void ofApp::draw(){
 	ofSetHexColor(0x000000);
 	ofDrawBitmapString("circle", 75,500);
 	
-	
-	//--------------------------- rectangles
-	ofFill();
-	for (int i = 0; i < 200; i++){
-		ofSetColor((int)ofRandom(0,255),(int)ofRandom(0,255),(int)ofRandom(0,255));
-		ofRect(ofRandom(250,350),ofRandom(350,450),ofRandom(10,20),ofRandom(10,20));
-	}
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("rectangles", 275,500);
 	
 	//---------------------------  transparency
 	ofSetHexColor(0x00FF33);
@@ -134,6 +128,8 @@ void ofApp::draw(){
     
     ofDrawBitmapString("Note this text is not captured by Syphon since it is drawn after publishing.\nYou can use this to hide your GUI for example.", 150,500);
 
+    container.draw();
+    
 }
 
 //--------------------------------------------------------------

@@ -9,8 +9,26 @@
 #include "AbstractObject.h"
 
 AbstractObject::AbstractObject(int _objectId, int _width, int _height) {
+    x = 0;
+    y = 0;
     width = _width;
     height = _height;
     objectId = _objectId;
     std::cout << "New object width ID " << objectId << " and " << width << "x" << height << std::endl;
+}
+
+AbstractObject::~AbstractObject() {
+}
+
+bool AbstractObject::operator == (const AbstractObject &rhs)
+{
+    return (rhs.objectId == objectId);
+}
+
+void AbstractObject::draw()
+{
+    cout << "A drawing..." << endl;
+    ofSetColor(255,0,0);
+    ofNoFill();
+    ofRect(x, y, width, height);
 }

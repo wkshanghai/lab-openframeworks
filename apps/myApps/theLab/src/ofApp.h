@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxSyphon.h"
+#include "LayoutManager.h"
 
 class ofApp : public ofBaseApp{
 
@@ -23,6 +24,8 @@ class ofApp : public ofBaseApp{
     
 	float 	counter;
 	bool	bSmooth;
+    
+    LayoutManager container;
 	
     ofTexture tex;
     
