@@ -40,11 +40,11 @@ void LayoutManager::layout()
 
 void LayoutManager::draw()
 {
-    list<AbstractObject>::iterator iterator;
-    //for (iterator = objects.begin(); iterator != objects.end(); iterator++)
-    //{
-    //    iterator->draw();
-    //}
+    list<AbstractObject*>::iterator iterator;
+    for (iterator = objects.begin(); iterator != objects.end(); iterator++)
+    {
+        (*iterator)->draw();
+    }
     
     // Packing algorithm here!
 }
