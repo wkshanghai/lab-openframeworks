@@ -16,7 +16,6 @@ ObjCircle2::ObjCircle2(int _objectId, int _width, int _height) : AbstractObject(
     height = _height;
     objectId = _objectId;
     counter = 0;
-    std::cout << "New object width ID (subclass) " << objectId << " and " << width << "x" << height << std::endl;
 }
 
 void ObjCircle2::draw()

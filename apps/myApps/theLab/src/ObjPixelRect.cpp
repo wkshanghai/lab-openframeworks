@@ -17,7 +17,6 @@ ObjPixelRect::ObjPixelRect(int _objectId, int _width, int _height) : AbstractObj
     width = _width;
     height = _height;
     objectId = _objectId;
-    std::cout << "New object width ID (subclass) " << objectId << " and " << width << "x" << height << std::endl;
 }
 
 void ObjPixelRect::draw()

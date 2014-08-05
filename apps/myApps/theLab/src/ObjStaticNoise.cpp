@@ -16,7 +16,6 @@ ObjStaticNoise::ObjStaticNoise(int _objectId, int _width, int _height) : Abstrac
     height = _height;
     objectId = _objectId;
     tex.allocate(width, height, GL_RGBA);
-    std::cout << "New object width ID (subclass) " << objectId << " and " << width << "x" << height << std::endl;
 }
 
 void ObjStaticNoise::draw()

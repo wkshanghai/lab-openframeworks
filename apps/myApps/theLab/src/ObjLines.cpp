@@ -15,7 +15,6 @@ ObjLines::ObjLines(int _objectId, int _width, int _height) : AbstractObject(_obj
     width = _width;
     height = _height;
     objectId = _objectId;
-    std::cout << "New object width ID (subclass) " << objectId << " and " << width << "x" << height << std::endl;
 }
 
 void ObjLines::draw()
