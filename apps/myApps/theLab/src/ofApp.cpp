@@ -32,9 +32,6 @@ void ofApp::setup(){
     
 	ofSetFrameRate(60); // if vertical sync is off, we can go a bit fast... this caps the framerate at 60fps.
     
-    //AbstractObject obj(10, 128, 256);
-    //container.add(obj);
-    
     shared_ptr<AbstractObject> ptr1(new ObjPixelRect(1, 128, 128));
     (*ptr1).x = 0;
     (*ptr1).y = 0;
@@ -50,7 +47,7 @@ void ofApp::setup(){
     (*ptr3).y = 0;
     container.add(ptr3);
     
-    shared_ptr<AbstractObject> ptr4(new ObjLines(1, 128, 128));
+    shared_ptr<AbstractObject> ptr4(new ObjLines(1, 256, 128));
     (*ptr4).x = 384;
     (*ptr4).y = 0;
     container.add(ptr4);

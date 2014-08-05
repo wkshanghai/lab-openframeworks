@@ -23,15 +23,18 @@ void ObjLines::draw()
 {
     ofEnableSmoothing();
 	
-	ofSetHexColor(0xFF0000);
+	ofSetHexColor(0xFF00FF);
+    
+    int segmentHeight = height / 21;
+    
 	for (int i = 0; i < 20; i++){
-		ofLine(x,100 + (i*5),500, 50 + (i*10));
+		ofLine(x,y + (i*3),x + width, y + (i*segmentHeight));
 	}
 	
     ofDisableSmoothing();
 	
     ofSetColor(255,255,255);
-	ofDrawBitmapString("lines\npress 's' to toggle smoothness", 300,300);
+	ofDrawBitmapString("lines\nsome text", x + 10, y + 10);
     
     AbstractObject::draw();
 }
