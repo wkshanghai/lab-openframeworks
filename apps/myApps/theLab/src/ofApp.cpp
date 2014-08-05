@@ -2,6 +2,8 @@
 #include "AbstractObject.h"
 
 #include "ObjPixelRect.h"
+#include "ObjCircle1.h"
+#include "ObjCircle2.h"
 
 const int width = 800;
 const int height = 600;
@@ -32,9 +34,20 @@ void ofApp::setup(){
     //AbstractObject obj(10, 128, 256);
     //container.add(obj);
     
-    shared_ptr<AbstractObject> ptr(new ObjPixelRect(1, 256, 256));
-
-    container.add(ptr);
+    shared_ptr<AbstractObject> ptr1(new ObjPixelRect(1, 128, 128));
+    (*ptr1).x = 0;
+    (*ptr1).y = 0;
+    container.add(ptr1);
+    
+    shared_ptr<AbstractObject> ptr2(new ObjCircle1(1, 128, 128));
+    (*ptr2).x = 128;
+    (*ptr2).y = 0;
+    container.add(ptr2);
+    
+    shared_ptr<AbstractObject> ptr3(new ObjCircle2(1, 128, 128));
+    (*ptr3).x = 256;
+    (*ptr3).y = 0;
+    container.add(ptr3);
 }
 
 //--------------------------------------------------------------
@@ -51,16 +64,6 @@ void ofApp::draw(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
 	//--------------------------- circles
-	//let's draw a circle:
-	ofSetColor(255,130,0);
-	float radius = 50 + 10 * sin(counter);
-	ofFill();		// draw "filled shapes"
-	ofCircle(100,400,radius);
-	
-	// now just an outline
-	ofNoFill();
-	ofSetHexColor(0xCCCCCC);
-	ofCircle(100,400,80);
 	
 	// use the bitMap type
 	// note, this can be slow on some graphics cards

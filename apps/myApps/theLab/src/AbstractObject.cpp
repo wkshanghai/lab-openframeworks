@@ -27,7 +27,6 @@ bool AbstractObject::operator == (const AbstractObject &rhs)
 
 void AbstractObject::draw()
 {
-    cout << "Base-class drawing..." << endl;
     ofSetColor(255,0,0);
     ofNoFill();
     ofRect(x, y, width, height);

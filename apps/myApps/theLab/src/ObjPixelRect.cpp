@@ -26,10 +26,9 @@ void ObjPixelRect::draw()
 	ofFill();
 	for (int i = 0; i < 200; i++){
 		ofSetColor((int)ofRandom(0,255),(int)ofRandom(0,255),(int)ofRandom(0,255));
-		ofRect(ofRandom(250,350),ofRandom(350,450),ofRandom(10,20),ofRandom(10,20));
+		ofRect(ofRandom(x,x+width-20),ofRandom(y,y+height-20),ofRandom(10,20),ofRandom(10,20));
 	}
 	ofSetHexColor(0x000000);
 	ofDrawBitmapString("rectangles", 275,500);
-    cout << "Subclass drawing..." << endl;
-    //AbstractObject::draw();
+    AbstractObject::draw();
 }
