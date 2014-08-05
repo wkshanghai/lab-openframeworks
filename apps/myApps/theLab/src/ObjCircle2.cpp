@@ -25,5 +25,9 @@ void ObjCircle2::draw()
 	ofSetHexColor(0xCCCCCC);
 	ofCircle(x + (width*.5),y + (height*.5), width * .5);
 
+    // Not shown for some reason
+    ofSetHexColor(0xFFFFFF);
+	ofDrawBitmapString("circle",x ,y);
+
     AbstractObject::draw();
 }

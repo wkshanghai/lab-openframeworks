@@ -11,6 +11,7 @@
 		1E383060198B6B110086BD5B /* AbstractObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E38305E198B6B110086BD5B /* AbstractObject.cpp */; };
 		1E4451141990803200A56A2D /* ObjCircle1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E4451121990803200A56A2D /* ObjCircle1.cpp */; };
 		1E445117199082C100A56A2D /* ObjCircle2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E445115199082C100A56A2D /* ObjCircle2.cpp */; };
+		1E44511A199086F700A56A2D /* ObjLines.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E445118199086F700A56A2D /* ObjLines.cpp */; };
 		1E7D9663198F56EF0095891D /* LayoutManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D9661198F56EF0095891D /* LayoutManager.cpp */; };
 		1E7D9667198F6E670095891D /* ObjPixelRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E7D9665198F6E670095891D /* ObjPixelRect.cpp */; };
 		1EAED4F8198A1C0B00D9FD57 /* SyphonNameboundClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAED4F7198A1C0B00D9FD57 /* SyphonNameboundClient.m */; };
@@ -80,6 +81,8 @@
 		1E4451131990803200A56A2D /* ObjCircle1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCircle1.h; sourceTree = "<group>"; };
 		1E445115199082C100A56A2D /* ObjCircle2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjCircle2.cpp; sourceTree = "<group>"; };
 		1E445116199082C100A56A2D /* ObjCircle2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCircle2.h; sourceTree = "<group>"; };
+		1E445118199086F700A56A2D /* ObjLines.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjLines.cpp; sourceTree = "<group>"; };
+		1E445119199086F700A56A2D /* ObjLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjLines.h; sourceTree = "<group>"; };
 		1E7D9661198F56EF0095891D /* LayoutManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayoutManager.cpp; sourceTree = "<group>"; };
 		1E7D9662198F56EF0095891D /* LayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutManager.h; sourceTree = "<group>"; };
 		1E7D9665198F6E670095891D /* ObjPixelRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjPixelRect.cpp; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				1E4451121990803200A56A2D /* ObjCircle1.cpp */,
 				1E445116199082C100A56A2D /* ObjCircle2.h */,
 				1E445115199082C100A56A2D /* ObjCircle2.cpp */,
+				1E445119199086F700A56A2D /* ObjLines.h */,
+				1E445118199086F700A56A2D /* ObjLines.cpp */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				1E383060198B6B110086BD5B /* AbstractObject.cpp in Sources */,
 				8D60C222CBD3F869382832E9 /* ofxSyphonServer.mm in Sources */,
 				11DF9AB1B4EAA63E3B190CA0 /* ofxSyphonServerDirectory.mm in Sources */,
+				1E44511A199086F700A56A2D /* ObjLines.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

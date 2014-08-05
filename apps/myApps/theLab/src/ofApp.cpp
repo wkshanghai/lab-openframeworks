@@ -4,6 +4,7 @@
 #include "ObjPixelRect.h"
 #include "ObjCircle1.h"
 #include "ObjCircle2.h"
+#include "ObjLines.h"
 
 const int width = 800;
 const int height = 600;
@@ -48,6 +49,11 @@ void ofApp::setup(){
     (*ptr3).x = 256;
     (*ptr3).y = 0;
     container.add(ptr3);
+    
+    shared_ptr<AbstractObject> ptr4(new ObjLines(1, 128, 128));
+    (*ptr4).x = 384;
+    (*ptr4).y = 0;
+    container.add(ptr4);
 }
 
 //--------------------------------------------------------------
@@ -60,21 +66,10 @@ void ofApp::update(){
 void ofApp::draw(){
     
     // Clear with alpha, so we can capture via syphon and composite elsewhere should we want.
-    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glClearColor(0.2, 0.2, 0.2, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-	//--------------------------- circles
-	
-	// use the bitMap type
-	// note, this can be slow on some graphics cards
-	// because it is using glDrawPixels which varies in
-	// speed from system to system.  try using ofTrueTypeFont
-	// if this bitMap type slows you down.
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("circle", 75,500);
-	
-	
-	//---------------------------  transparency
+/*	//---------------------------  transparency
 	ofSetHexColor(0x00FF33);
 	ofRect(100,150,100,100);
 	// alpha is usually turned off - for speed puposes.  let's turn it on!
@@ -87,26 +82,8 @@ void ofApp::draw(){
 	
 	ofSetHexColor(0x000000);
 	ofDrawBitmapString("transparency", 110,300);
+*/
 	
-	//---------------------------  lines
-	// a bunch of red lines, make them smooth if the flag is set
-	
-	if (bSmooth){
-		ofEnableSmoothing();
-	}
-	
-	ofSetHexColor(0xFF0000);
-	for (int i = 0; i < 20; i++){
-		ofLine(300,100 + (i*5),500, 50 + (i*10));
-	}
-	
-	if (bSmooth){
-		ofDisableSmoothing();
-	}
-	
-    ofSetColor(255,255,255);
-	ofDrawBitmapString("lines\npress 's' to toggle smoothness", 300,300);
-    
     // draw static into our one texture.
     unsigned char pixels[200*100*4];
     
