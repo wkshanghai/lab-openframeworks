@@ -32,8 +32,9 @@ void ofApp::setup(){
     //AbstractObject obj(10, 128, 256);
     //container.add(obj);
     
-    ObjPixelRect objPixelRect(1, 256, 256);
-    container.add(objPixelRect);
+    shared_ptr<AbstractObject> ptr(new ObjPixelRect(1, 256, 256));
+
+    container.add(ptr);
 }
 
 //--------------------------------------------------------------

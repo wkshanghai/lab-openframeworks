@@ -18,7 +18,7 @@ public:
     ObjPixelRect(int _objectId, int _width, int _height);
 	ObjPixelRect();
 
-    void draw();
+    void draw() override;
 private:
 };
 

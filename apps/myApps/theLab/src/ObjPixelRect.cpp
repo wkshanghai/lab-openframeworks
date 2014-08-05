@@ -30,6 +30,6 @@ void ObjPixelRect::draw()
 	}
 	ofSetHexColor(0x000000);
 	ofDrawBitmapString("rectangles", 275,500);
-    cout << "B drawing..." << endl;
+    cout << "Subclass drawing..." << endl;
     //AbstractObject::draw();
 }

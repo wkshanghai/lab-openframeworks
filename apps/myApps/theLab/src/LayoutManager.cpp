@@ -18,18 +18,11 @@ LayoutManager::~LayoutManager()
 {
 }
 
-AbstractObject LayoutManager::add(AbstractObject object)
+void LayoutManager::add(shared_ptr<AbstractObject> object)
 {
     cout << "LayoutManager::add()" << endl;
-    objects.push_back(&object);
+    objects.push_back(object);
     layout();
-    return object;
-}
-
-void LayoutManager::remove(AbstractObject object)
-{
-    cout << "LayoutManager::remove()" << endl;
-    objects.remove(&object);
 }
 
 void LayoutManager::layout()
@@ -40,7 +33,7 @@ void LayoutManager::layout()
 
 void LayoutManager::draw()
 {
-    list<AbstractObject*>::iterator iterator;
+    vector<shared_ptr<AbstractObject> >::iterator iterator;
     for (iterator = objects.begin(); iterator != objects.end(); iterator++)
     {
         (*iterator)->draw();

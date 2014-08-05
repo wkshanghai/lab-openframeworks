@@ -21,10 +21,9 @@ public:
     LayoutManager();
 	~LayoutManager();
 
-    list<AbstractObject*> objects;
-    
-    AbstractObject add(AbstractObject object);
-    void remove(AbstractObject object);
+    vector<shared_ptr<AbstractObject> > objects;
+
+    void add(shared_ptr<AbstractObject> object);
     
     void layout();
     void draw();

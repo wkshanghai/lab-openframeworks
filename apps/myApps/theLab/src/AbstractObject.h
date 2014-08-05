@@ -23,7 +23,7 @@ public:
     int width;
     int height;
     
-    void draw();
+    virtual void draw();
     
     bool operator == (const AbstractObject &rhs);
 protected:
