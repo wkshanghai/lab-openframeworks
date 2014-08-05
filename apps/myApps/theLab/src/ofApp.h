@@ -26,9 +26,7 @@ class ofApp : public ofBaseApp{
 	bool	bSmooth;
     
     LayoutManager container;
-	
-    ofTexture tex;
-    
+	    
 	ofxSyphonServer mainOutputSyphonServer;
 	ofxSyphonServer individualTextureSyphonServer;
 	

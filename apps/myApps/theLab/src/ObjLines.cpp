@@ -15,7 +15,6 @@ ObjLines::ObjLines(int _objectId, int _width, int _height) : AbstractObject(_obj
     width = _width;
     height = _height;
     objectId = _objectId;
-    counter = 0;
     std::cout << "New object width ID (subclass) " << objectId << " and " << width << "x" << height << std::endl;
 }
 
@@ -34,7 +33,7 @@ void ObjLines::draw()
     ofDisableSmoothing();
 	
     ofSetColor(255,255,255);
-	ofDrawBitmapString("lines\nsome text", x + 10, y + 10);
+	ofDrawBitmapString("lines", x + 5, y + 15);
     
     AbstractObject::draw();
 }

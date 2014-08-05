@@ -28,7 +28,9 @@ void ObjPixelRect::draw()
 		ofSetColor((int)ofRandom(0,255),(int)ofRandom(0,255),(int)ofRandom(0,255));
 		ofRect(ofRandom(x,x+width-20),ofRandom(y,y+height-20),ofRandom(10,20),ofRandom(10,20));
 	}
-	ofSetHexColor(0x000000);
-	ofDrawBitmapString("rectangles", 275,500);
+
+	ofSetHexColor(0xffffff);
+	ofDrawBitmapString("rectangles", x + 5, y + 15);
+
     AbstractObject::draw();
 }

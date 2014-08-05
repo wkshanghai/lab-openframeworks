@@ -35,9 +35,5 @@ void LayoutManager::draw()
 {
     vector<shared_ptr<AbstractObject> >::iterator iterator;
     for (iterator = objects.begin(); iterator != objects.end(); iterator++)
-    {
         (*iterator)->draw();
-    }
-    
-    // Packing algorithm here!
 }

@@ -16,7 +16,6 @@ class ObjPixelRect : public AbstractObject
 {
 public:
     ObjPixelRect(int _objectId, int _width, int _height);
-	ObjPixelRect();
 
     void draw() override;
 private:

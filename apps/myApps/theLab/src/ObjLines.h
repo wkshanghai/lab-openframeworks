@@ -16,11 +16,9 @@ class ObjLines : public AbstractObject
 {
 public:
     ObjLines(int _objectId, int _width, int _height);
-	ObjLines();
     
     void draw() override;
 private:
-	float 	counter;
 };
 
 #endif /* defined(__theLab__ObjLines__) */

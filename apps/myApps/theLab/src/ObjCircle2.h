@@ -16,7 +16,6 @@ class ObjCircle2 : public AbstractObject
 {
 public:
     ObjCircle2(int _objectId, int _width, int _height);
-	ObjCircle2();
     
     void draw() override;
 private:

@@ -28,5 +28,9 @@ void ObjCircle1::draw()
     float radius = (width * .3) + 20 * sin(counter);
     ofFill();
     ofCircle(x + (width*0.5),y + (height*0.5),radius);
+
+    ofSetHexColor(0xFFFFFF);
+	ofDrawBitmapString("circle1", x + 5, y + 15);
+    
     AbstractObject::draw();
 }
