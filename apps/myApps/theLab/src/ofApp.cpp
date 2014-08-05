@@ -19,7 +19,7 @@ void ofApp::setup(){
     //ofBackground(0,0,0);
     
     bSmooth = false;
-	ofSetWindowTitle("ofxSyphon Example");
+	ofSetWindowTitle("The Lab");
     
 	mainOutputSyphonServer.setName("Screen Output");
 	individualTextureSyphonServer.setName("Texture Output");
@@ -31,17 +31,21 @@ void ofApp::setup(){
 	
 	ofSetFrameRate(60); // if vertical sync is off, we can go a bit fast... this caps the framerate at 60fps.
     
-    shared_ptr<AbstractObject> ptr1(new ObjPixelRect(1, 64, 220));
-    shared_ptr<AbstractObject> ptr2(new ObjCircle1(1, 256, 512));
-    shared_ptr<AbstractObject> ptr3(new ObjCircle2(1, 128, 128));
-    shared_ptr<AbstractObject> ptr4(new ObjLines(1, 512, 128));
-    shared_ptr<AbstractObject> ptr5(new ObjStaticNoise(1, 128, 128));
+    shared_ptr<AbstractObject> ptr1(new ObjPixelRect(1, 128, 100));
+    shared_ptr<AbstractObject> ptr2(new ObjCircle1(1, 256, 256));
+    shared_ptr<AbstractObject> ptr3(new ObjCircle2(1, 198, 198));
+    shared_ptr<AbstractObject> ptr4(new ObjLines(1, 512, 74));
+    shared_ptr<AbstractObject> ptr5(new ObjStaticNoise(1, 145, 128));
+    shared_ptr<AbstractObject> ptr6(new ObjStaticNoise(1, 128, 220));
+    shared_ptr<AbstractObject> ptr7(new ObjPixelRect(1, 256, 330));
 
     container.add(ptr1);
     container.add(ptr2);
     container.add(ptr3);
     container.add(ptr4);
     container.add(ptr5);
+    container.add(ptr6);
+    container.add(ptr7);
 }
 
 //--------------------------------------------------------------
