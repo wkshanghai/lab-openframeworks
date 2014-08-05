@@ -31,8 +31,8 @@ void ofApp::setup(){
 	
 	ofSetFrameRate(60); // if vertical sync is off, we can go a bit fast... this caps the framerate at 60fps.
     
-    shared_ptr<AbstractObject> ptr1(new ObjPixelRect(1, 128, 128));
-    shared_ptr<AbstractObject> ptr2(new ObjCircle1(1, 128, 128));
+    shared_ptr<AbstractObject> ptr1(new ObjPixelRect(1, 64, 220));
+    shared_ptr<AbstractObject> ptr2(new ObjCircle1(1, 256, 512));
     shared_ptr<AbstractObject> ptr3(new ObjCircle2(1, 128, 128));
     shared_ptr<AbstractObject> ptr4(new ObjLines(1, 512, 128));
     shared_ptr<AbstractObject> ptr5(new ObjStaticNoise(1, 128, 128));
@@ -100,7 +100,7 @@ void ofApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-
+    container.layout();
 }
 
 //--------------------------------------------------------------
