@@ -544,8 +544,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(PROJECT_DIR)../../../addons/ofxSyphon/libs/Syphon/lib/osx",
-					"/Users/victor.norgren/Documents/Work/Repositories/lab-openframeworks/addons/ofxSyphon/libs/Syphon/lib/osx",
+					"$(PROJECT_DIR)/../../../addons/ofxSyphon/libs/Syphon/lib/osx",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -632,8 +631,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(PROJECT_DIR)../../../addons/ofxSyphon/libs/Syphon/lib/osx",
-					"/Users/victor.norgren/Documents/Work/Repositories/lab-openframeworks/addons/ofxSyphon/libs/Syphon/lib/osx",
+					"$(PROJECT_DIR)/../../../addons/ofxSyphon/libs/Syphon/lib/osx",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
