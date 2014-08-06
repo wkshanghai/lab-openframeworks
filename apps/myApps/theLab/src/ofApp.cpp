@@ -21,12 +21,10 @@ void ofApp::setup(){
     bSmooth = false;
 	ofSetWindowTitle("The Lab");
     
-	mainOutputSyphonServer.setName("Screen Output");
+	mainOutputSyphonServer.setName("Projection mapping");
 	individualTextureSyphonServer.setName("Texture Output");
     
 	mClient.setup();
-    
-    //using Syphon app Simple Server, found at http://syphon.v002.info/
     mClient.set("","Simple Server");
 	
 	ofSetFrameRate(60); // if vertical sync is off, we can go a bit fast... this caps the framerate at 60fps.
@@ -57,9 +55,12 @@ void ofApp::update(){
 void ofApp::draw(){
     
     // Clear with alpha, so we can capture via syphon and composite elsewhere should we want.
-    glClearColor(0.2, 0.2, 0.2, 0.0);
+    glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
+    // Draw objects
+    container.draw();
+
 	// Syphon Stuff
     mClient.draw(50, 50);
 	mainOutputSyphonServer.publishScreen();
@@ -67,7 +68,6 @@ void ofApp::draw(){
     //individualTextureSyphonServer.publishTexture(&tex);
     
     ofDrawBitmapString("Note this text is not captured by Syphon since it is drawn after publishing.\nYou can use this to hide your GUI for example.", 150,500);
-    container.draw();
 }
 
 //--------------------------------------------------------------
