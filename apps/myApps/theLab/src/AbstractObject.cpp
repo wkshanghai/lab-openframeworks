@@ -8,6 +8,11 @@
 
 #include "AbstractObject.h"
 
+AbstractObject::AbstractObject() :x(0), y(0), width(800), height(600), objectId(0)
+{
+    cout << "Default constructor with no args" << endl;
+}
+
 AbstractObject::AbstractObject(int _objectId, int _width, int _height) {
     x = 0;
     y = 0;

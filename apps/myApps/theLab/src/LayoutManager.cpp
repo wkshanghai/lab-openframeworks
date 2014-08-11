@@ -7,11 +7,14 @@
 //
 
 #include "LayoutManager.h"
+#include "Node.h"
+#include "AbstractObject.h"
 #include <algorithm>
 
 LayoutManager::LayoutManager()
 {
     cout << "LayoutManager::LayoutManager()" << endl;
+    
 }
 
 LayoutManager::~LayoutManager()
@@ -21,7 +24,6 @@ LayoutManager::~LayoutManager()
 void LayoutManager::add(shared_ptr<AbstractObject> object)
 {
     objects.push_back(object);
-    layout();
 }
 
 template <typename T> bool compareWidth(const T & a, const T & b)
@@ -36,45 +38,131 @@ template <typename T> bool compareHeight(const T & a, const T & b)
 
 void LayoutManager::layout()
 {
+    sort(objects.begin(), objects.end(), compareWidth<shared_ptr<AbstractObject> >);
+    
     cout << "LayoutManager::layout()" << endl;
-    //sort(objects.begin(), objects.end());
+    cout << objects.size() << endl;
     
-    std::sort(objects.begin(), objects.end(), compareHeight<shared_ptr<AbstractObject> >);
-
-    uint i = 0;
-    uint rowHeight = 0;
-    uint x = 0;
-    uint y = 0;
-    uint w = ofGetWidth();
-    uint h = ofGetHeight();
+    //define first Node and its rect//
+    startNode = new Node();
+    startNode->rect.x = 0;
+    startNode->rect.y = 0;
+    startNode->rect.width = ofGetWidth();
+    startNode->rect.height = ofGetHeight();
     
-    vector<shared_ptr<AbstractObject> >::iterator iterator;
-    for (iterator = objects.begin(); iterator != objects.end(); iterator++)
+    //run iterator
+    for(int i=0; i<objects.size(); i++)
     {
-        (*iterator)->draw();
+        iterator(i);
+    }
+}
 
-        // check if column exceeds width
-        if((x + (*iterator)->width) >= w) {
-            x = 0;
-            y += rowHeight;
+void LayoutManager::iterator(int rectId)
+{
+    cout << "iterator size " << objects.size() << " num " << rectId << endl;
+    
+    shared_ptr<AbstractObject> rect = objects.at(rectId);//objects[rectId];
+    
+    cout << rect->width << endl;
+    cout << rect->height << endl;
+    
+    Node *node = insertRect(startNode, rect);
+    if(node != NULL) {
+        cout << "has node!" << endl;
+        rect->x = node->rect.x;
+        rect->y = node->rect.y;
+    }
+}
 
-            cout << "Height: " << rowHeight << " y: " << y << endl;
-            
-            rowHeight = 0;
+Node *LayoutManager::insertRect(Node *cnode, shared_ptr<AbstractObject> newRect)
+{
+    cout << "insertRect" << endl;
+    
+    //cout << cnode->left << endl;
+    
+    if(cnode->left != NULL) {
+        cout << "Has Left" << endl;
+        //return insertRect(cnode->left, newRect) || insertRect(cnode->left, newRect);
+        Node *leftInsertRect =insertRect(cnode->left, newRect);
+        if(leftInsertRect != NULL)
+        {
+           cout << "leftInsertRect" << endl;
+            return leftInsertRect;
         }
-
-        if((*iterator)->height > rowHeight)
-            rowHeight = (*iterator)->height;
-        
-        
-        (*iterator)->x = x;
-        (*iterator)->y = y;
-        x += (*iterator)->width;
-
-        i++;
+        else
+        {
+            cout << "rightInsertRect" << endl;
+            return insertRect(cnode->right, newRect);
+        }
     }
     
-    // Packing algorithm here!
+    if(cnode->isFill == true) {
+        cout << "isFilled" << endl;
+        return NULL;
+    }
+    
+    if(fitsIn(cnode->rect,newRect) == false) {
+        cout << "NotFit" << endl;
+        return NULL;
+    }
+    
+    if(sameSize(cnode->rect,newRect) == true)
+    {
+        cout << "samesize" << endl;
+        cnode->isFill = true;
+        
+        return cnode;
+    }
+    
+    cout << "make left & right" << endl;
+    
+    cnode->left = new Node();
+    cnode->right = new Node();
+    
+    float widthDiff = cnode->rect.width - newRect->width;
+    float heightDiff = cnode->rect.height - newRect->height;
+    
+    if( widthDiff > heightDiff) {
+        cnode->left->rect.x = cnode->rect.x;
+        cnode->left->rect.y = cnode->rect.y;
+        cnode->left->rect.width = newRect->width;
+        cnode->left->rect.height = cnode->rect.height;
+        
+        cnode->right->rect.x = cnode->rect.x + newRect->width;
+        cnode->right->rect.y = cnode->rect.y;
+        cnode->right->rect.width = cnode->rect.width - newRect->width;
+        cnode->right->rect.height = cnode->rect.height;
+        
+    }else {
+        cnode->left->rect.x = cnode->rect.x;
+        cnode->left->rect.y = cnode->rect.y;
+        cnode->left->rect.width = cnode->rect.width;
+        cnode->left->rect.height = newRect->height;
+        
+        cnode->right->rect.x = cnode->rect.x;
+        cnode->right->rect.y = cnode->rect.y + newRect->height;
+        cnode->right->rect.width = cnode->rect.width;
+        cnode->right->rect.height = cnode->rect.height - newRect->height;
+        
+    }
+    
+    return insertRect(cnode->left, newRect);
+}
+
+bool LayoutManager::sameSize(AbstractObject nodeRect,shared_ptr<AbstractObject> newRect)
+{
+    if(nodeRect.width == newRect->width && nodeRect.height == newRect->height){
+        return true;
+    }
+    return false;
+}
+
+bool LayoutManager::fitsIn(AbstractObject nodeRect,shared_ptr<AbstractObject> newRect)
+{
+    if(newRect->width <= nodeRect.width && newRect->height <= nodeRect.height){
+        return true;
+    }
+    return false;
 }
 
 void LayoutManager::draw()

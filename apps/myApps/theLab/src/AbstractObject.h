@@ -14,6 +14,7 @@
 
 class AbstractObject {
 public:
+    AbstractObject();
     AbstractObject(int _objectId, int _width, int _height);
 	~AbstractObject();
     
