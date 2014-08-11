@@ -50,39 +50,31 @@ void LayoutManager::layout()
     startNode->rect.width = ofGetWidth();
     startNode->rect.height = ofGetHeight();
     
-    //run iterator
-    for(int i=0; i<objects.size(); i++)
+    int i;
+    for(i = 0; i < objects.size(); i++)
     {
-        iterator(i);
-    }
-}
-
-void LayoutManager::iterator(int rectId)
-{
-    cout << "iterator size " << objects.size() << " num " << rectId << endl;
-    
-    shared_ptr<AbstractObject> rect = objects.at(rectId);//objects[rectId];
-    
-    cout << rect->width << endl;
-    cout << rect->height << endl;
-    
-    Node *node = insertRect(startNode, rect);
-    if(node != NULL) {
-        cout << "has node!" << endl;
-        rect->x = node->rect.x;
-        rect->y = node->rect.y;
+        cout << "iterator size " << objects.size() << " num " << i << endl;
+        
+        shared_ptr<AbstractObject> rect = objects.at(i);
+        
+        cout << rect->width << endl;
+        cout << rect->height << endl;
+        
+        Node *node = insertRect(startNode, rect);
+        if(node != NULL) {
+            cout << "has node!" << endl;
+            rect->x = node->rect.x;
+            rect->y = node->rect.y;
+        }
     }
 }
 
 Node *LayoutManager::insertRect(Node *cnode, shared_ptr<AbstractObject> newRect)
 {
-    cout << "insertRect" << endl;
-    
-    //cout << cnode->left << endl;
+    cout << "LayoutManager::insertRect" << endl;
     
     if(cnode->left != NULL) {
         cout << "Has Left" << endl;
-        //return insertRect(cnode->left, newRect) || insertRect(cnode->left, newRect);
         Node *leftInsertRect =insertRect(cnode->left, newRect);
         if(leftInsertRect != NULL)
         {
@@ -102,13 +94,13 @@ Node *LayoutManager::insertRect(Node *cnode, shared_ptr<AbstractObject> newRect)
     }
     
     if(fitsIn(cnode->rect,newRect) == false) {
-        cout << "NotFit" << endl;
+        cout << "doesn't fit" << endl;
         return NULL;
     }
     
     if(sameSize(cnode->rect,newRect) == true)
     {
-        cout << "samesize" << endl;
+        cout << "same size" << endl;
         cnode->isFill = true;
         
         return cnode;
@@ -143,7 +135,6 @@ Node *LayoutManager::insertRect(Node *cnode, shared_ptr<AbstractObject> newRect)
         cnode->right->rect.y = cnode->rect.y + newRect->height;
         cnode->right->rect.width = cnode->rect.width;
         cnode->right->rect.height = cnode->rect.height - newRect->height;
-        
     }
     
     return insertRect(cnode->left, newRect);

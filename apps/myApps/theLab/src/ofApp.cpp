@@ -36,10 +36,6 @@ void ofApp::setup(){
     shared_ptr<AbstractObject> ptr5(new ObjStaticNoise(1, 145, 128));
     shared_ptr<AbstractObject> ptr6(new ObjStaticNoise(1, 128, 220));
     shared_ptr<AbstractObject> ptr7(new ObjPixelRect(1, 256, 330));
-    shared_ptr<AbstractObject> ptr8(new ObjStaticNoise(1, 145, 128));
-    shared_ptr<AbstractObject> ptr9(new ObjCircle1(1, 256, 256));
-
-    
     
     container.add(ptr7);
     container.add(ptr2);
@@ -48,9 +44,6 @@ void ofApp::setup(){
     container.add(ptr3);
     container.add(ptr5);
     container.add(ptr6);
-    container.add(ptr8);
-    container.add(ptr9);
-    
 
     container.layout();
 }
