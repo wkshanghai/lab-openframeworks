@@ -14,7 +14,6 @@
 LayoutManager::LayoutManager()
 {
     cout << "LayoutManager::LayoutManager()" << endl;
-    
 }
 
 LayoutManager::~LayoutManager()
@@ -24,6 +23,7 @@ LayoutManager::~LayoutManager()
 void LayoutManager::add(shared_ptr<AbstractObject> object)
 {
     objects.push_back(object);
+    layout();
 }
 
 template <typename T> bool compareWidth(const T & a, const T & b)
@@ -43,7 +43,7 @@ void LayoutManager::layout()
     cout << "LayoutManager::layout()" << endl;
     cout << objects.size() << endl;
     
-    //define first Node and its rect//
+    //define first Node and its rect
     startNode = new Node();
     startNode->rect.x = 0;
     startNode->rect.y = 0;
@@ -53,8 +53,6 @@ void LayoutManager::layout()
     int i;
     for(i = 0; i < objects.size(); i++)
     {
-        cout << "iterator size " << objects.size() << " num " << i << endl;
-        
         shared_ptr<AbstractObject> rect = objects.at(i);
         
         cout << rect->width << endl;
@@ -62,7 +60,6 @@ void LayoutManager::layout()
         
         Node *node = insertRect(startNode, rect);
         if(node != NULL) {
-            cout << "has node!" << endl;
             rect->x = node->rect.x;
             rect->y = node->rect.y;
         }
@@ -92,17 +89,17 @@ Node *LayoutManager::insertRect(Node *cnode, shared_ptr<AbstractObject> newRect)
         cout << "isFilled" << endl;
         return NULL;
     }
-    
-    if(fitsIn(cnode->rect,newRect) == false) {
+
+    // Determine if rectangle fits within area
+    if(!(newRect->width <= cnode->rect.width && newRect->height <= cnode->rect.height)){
         cout << "doesn't fit" << endl;
         return NULL;
     }
     
-    if(sameSize(cnode->rect,newRect) == true)
-    {
+    // Determine if rectangles are of same size
+    if(cnode->rect.width == newRect->width && cnode->rect.height == newRect->height){
         cout << "same size" << endl;
         cnode->isFill = true;
-        
         return cnode;
     }
     
@@ -138,22 +135,6 @@ Node *LayoutManager::insertRect(Node *cnode, shared_ptr<AbstractObject> newRect)
     }
     
     return insertRect(cnode->left, newRect);
-}
-
-bool LayoutManager::sameSize(AbstractObject nodeRect,shared_ptr<AbstractObject> newRect)
-{
-    if(nodeRect.width == newRect->width && nodeRect.height == newRect->height){
-        return true;
-    }
-    return false;
-}
-
-bool LayoutManager::fitsIn(AbstractObject nodeRect,shared_ptr<AbstractObject> newRect)
-{
-    if(newRect->width <= nodeRect.width && newRect->height <= nodeRect.height){
-        return true;
-    }
-    return false;
 }
 
 void LayoutManager::draw()

@@ -32,8 +32,6 @@ public:
     
     void layout();
     void draw();
-    bool sameSize(AbstractObject nodeRect,shared_ptr<AbstractObject> newRect);
-    bool fitsIn(AbstractObject nodeRect,shared_ptr<AbstractObject> newRect);
     Node *insertRect(Node *cnode, shared_ptr<AbstractObject> newRect);
     
 protected:
